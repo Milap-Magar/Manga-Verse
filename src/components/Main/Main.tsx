@@ -18,7 +18,8 @@ const Main = () => {
       const mangaProvider = new MANGA.MangaDex();
       try {
         const results = await mangaProvider.fetchRecentlyAdded();
-        console.log("API Response:", results);
+        // console.log("API Response:", results);
+
         if (results && Array.isArray(results.results)) {
           const formattedResults: MangaItem[] = results.results.map(
             (manga: any) => ({
@@ -49,26 +50,28 @@ const Main = () => {
         <p className="text-black">LOADINGGG.....</p>
       ) : (
         homeList.length > 0 && (
-          <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 py-6 px-2 bg-[#beeae7]">
-            {homeList.map((manga: MangaItem) => (
-              <li
-                key={manga.id}
-                className="bg-white rounded-xl shadow-lg overflow-hidden shadow-[#a9aeae]"
-              >
-                <img
-                  src={manga.cover}
-                  alt={`${manga.title} cover`}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-4">
-                  <h3 className="text-lg font-bold">{manga.title}</h3>
-                  <p className="text-sm text-gray-700 truncate">
-                    {manga.description}
-                  </p>
-                </div>
-              </li>
-            ))}
-          </ul>
+          <div>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 py-6 px-2 bg-[#beeae7]">
+              {homeList.map((manga: MangaItem) => (
+                <li
+                  key={manga.id}
+                  className="bg-white rounded-xl shadow-lg overflow-hidden shadow-[#a9aeae]"
+                >
+                  <img
+                    src={manga.cover}
+                    alt={`${manga.title} cover`}
+                    className="w-full h-48 object-cover"
+                  />
+                  <div className="p-4">
+                    <h3 className="text-lg font-bold">{manga.title}</h3>
+                    <p className="text-sm text-gray-700 truncate">
+                      {manga.description}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
         )
       )}
     </div>

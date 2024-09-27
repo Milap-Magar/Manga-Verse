@@ -1,9 +1,10 @@
-import { Footer, Main, Navbar } from "../components";
+import { Footer, Hero, Main, Navbar } from "../components";
 
 const Home = () => {
   return (
     <>
       <Navbar />
+      <Hero />
       <Main />
       <Footer />
     </>
