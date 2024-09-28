@@ -1,10 +1,15 @@
-import { Footer, Hero, Main, Navbar } from "../components";
+import { Footer, Main, Navbar } from "../components";
 
 const Home = () => {
   return (
     <>
       <Navbar />
-      {/* <Hero /> */}
+
+      {/* 
+      Slider bug fixes and error to be fixed in there
+      <Hero /> 
+       */}
+
       <Main />
       <Footer />
     </>

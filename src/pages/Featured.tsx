@@ -1,5 +1,5 @@
 import { MANGA } from "@consumet/extensions";
-import { Card, Loading, Navbar } from "../components";
+import { Card, Footer, Loading, Navbar } from "../components";
 
 import { useEffect, useState } from "react";
 
@@ -18,7 +18,7 @@ const Featured = () => {
       const mangaProvider = new MANGA.MangaDex();
       try {
         const results = await mangaProvider.fetchRecentlyAdded();
-        // console.log("API Response:", results);
+        console.log("API Response:", results);
 
         if (results && Array.isArray(results.results)) {
           const formattedResults: mangaFeature[] = results.results.map(
@@ -44,14 +44,17 @@ const Featured = () => {
 
   return (
     <>
+      <Navbar />
       {isLoading ? (
         <Loading />
       ) : (
-        <div>
-          <Navbar />
-          <Card manga={data} />
+        <div className="grid grid-cols-1 gap-4 p-4 sm:grid-cols-3 lg:grid-cols-6">
+          {data.map((manga) => (
+            <Card key={manga.id} title={manga.title} image={manga.image} />
+          ))}
         </div>
       )}
+      <Footer />
     </>
   );
 };
