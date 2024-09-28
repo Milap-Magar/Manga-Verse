@@ -4,7 +4,7 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <Hero />
+      {/* <Hero /> */}
       <Main />
       <Footer />
     </>

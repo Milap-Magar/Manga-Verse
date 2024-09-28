@@ -1,5 +1,6 @@
 import { MANGA } from "@consumet/extensions";
 import { useEffect, useState } from "react";
+import Loading from "../Loading/Loading";
 
 interface MangaItem {
   title: string;
@@ -47,7 +48,7 @@ const Main = () => {
   return (
     <div>
       {isLoading ? (
-        <p className="text-black">LOADINGGG.....</p>
+        <Loading />
       ) : (
         homeList.length > 0 && (
           <div>

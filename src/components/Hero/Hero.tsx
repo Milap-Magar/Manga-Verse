@@ -5,6 +5,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
+import Loading from "../Loading/Loading";
 
 interface TrendingList {
   id: string;
@@ -22,7 +23,7 @@ const Hero = () => {
         console.log("Fetching popular mangas...");
 
         const results = await mangaProvider.fetchPopular();
-        console.log("API response: ", results);
+        // console.log("API response: ", results);
 
         if (results && Array.isArray(results.results)) {
           const formattedResults: TrendingList[] = results.results.map(
@@ -46,39 +47,30 @@ const Hero = () => {
   return (
     <>
       {isLoading ? (
-        <p>Loading...</p>
+        <Loading />
       ) : (
-        <Swiper
-          spaceBetween={30}
-          centeredSlides={true}
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-          }}
-          pagination={{
-            clickable: true,
-          }}
-          navigation={true}
-          modules={[Pagination, Navigation, Autoplay]}
-          className="h-[50vh] w-[50vw]"
-        >
-          {heroList.map((manga) => (
-            <SwiperSlide key={manga.id}>
-              <div className="flex justify-between w-full h-[80vh]">
-                <img
-                  src={manga.image}
-                  alt={manga.id}
-                  className="w-1/2 h-full object-contain"
-                />
-                <img
-                  src={manga.image}
-                  alt={manga.id}
-                  className="w-1/2 h-full object-contain"
-                />
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        <div className="md:w-[50vw] ">
+          <Swiper
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
+            modules={[Pagination, Navigation, Autoplay]}
+            className="h-[50vh] md:w-[50vw] "
+          >
+            {heroList.map((manga) => (
+              <SwiperSlide key={manga.id}>
+                <div className="flex justify-between w-full h-[80vh]">
+                  <img
+                    src={manga.image}
+                    alt={manga.id}
+                    className="object-contain w-[50vw]"
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
       )}
     </>
   );
