@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Logo from "../../assets/Logo2.svg";
 import { TiThMenuOutline } from "react-icons/ti";
 import { IoClose } from "react-icons/io5";
@@ -7,9 +7,24 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
+  // Close the menu when clicking outside of it
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (!target.closest('.navbar') && isOpen) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]);
+
   return (
     <div>
-      <nav className="w-auto min-h-auto relative">
+      <nav className="navbar w-auto min-h-auto relative">
         <div className="flex justify-between bg-[#051622] py-2 px-2 shadow-lg shadow-[#4d948f]">
           <figure className="cursor-pointer">
             <img src={Logo} alt="Logo_manga" />
@@ -43,17 +58,18 @@ const Navbar = () => {
               visibility:
                 isOpen || window.innerWidth >= 768 ? "visible" : "hidden",
             }}
+            aria-expanded={isOpen}
           >
-            <Link to={"/"}>
+            <Link to={"/"} onClick={() => setIsOpen(false)}>
               <li>Home</li>
             </Link>
-            <Link to={"/featured"}>
+            <Link to={"/featured"} onClick={() => setIsOpen(false)}>
               <li>Featured</li>
             </Link>
-            <Link to={"/manga-list"}>
+            <Link to={"/manga-list"} onClick={() => setIsOpen(false)}>
               <li>Manga List</li>
             </Link>
-            <li>Category</li>
+            <li onClick={() => setIsOpen(false)}>Category</li>
           </ul>
         </div>
       </nav>
