@@ -8,6 +8,7 @@ export { default as Footer } from "./Footer/Footer";
 // Sub-Components
 export { default as Card } from "./Card/Card";
 export { default as Line } from "./Line/Line";
+export { default as MangaList } from "./Manga/MangaList";
 
 // Manga Section export
 export { default as RecentlyAdded } from "../components/Manga/RecentlyAdded";

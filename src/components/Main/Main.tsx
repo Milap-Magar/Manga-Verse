@@ -52,7 +52,7 @@ const Main = () => {
       ) : (
         homeList.length > 0 && (
           <div className="overflow-hidden">
-            <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 py-6 px-2 bg-[#beeae7]">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 py-6 px-2 bg-[#beeae7] ">
               {homeList.map((manga: MangaItem) => (
                 <li
                   key={manga.id}
