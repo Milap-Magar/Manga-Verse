@@ -1,6 +1,7 @@
 import { MANGA } from "@consumet/extensions";
 import { useEffect, useState } from "react";
 import Loading from "../Loading/Loading";
+import Faq_Button from "../Card/Faq_Button";
 
 interface MangaItem {
   title: string;
@@ -65,6 +66,7 @@ const Main = () => {
                   />
                   <div className="p-4">
                     <h3 className="text-lg font-bold">{manga.title}</h3>
+                  <Faq_Button title={"Read Me"} />  
                     <p className="text-sm text-gray-700 truncate">
                       {manga.description}
                     </p>

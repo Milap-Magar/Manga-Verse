@@ -11,7 +11,7 @@ const Navbar = () => {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
-      if (!target.closest('.navbar') && isOpen) {
+      if (!target.closest(".navbar") && isOpen) {
         setIsOpen(false);
       }
     };
@@ -26,9 +26,11 @@ const Navbar = () => {
     <div>
       <nav className="navbar w-auto min-h-auto relative">
         <div className="flex justify-between bg-[#051622] py-2 px-2 shadow-lg shadow-[#4d948f]">
-          <figure className="cursor-pointer">
-            <img src={Logo} alt="Logo_manga" />
-          </figure>
+          <Link to={"/"}>
+            <figure className="cursor-pointer">
+              <img src={Logo} alt="Logo_manga" />
+            </figure>
+          </Link>
 
           {/* Mobile menu toggle button */}
           <div className="md:hidden z-10">
