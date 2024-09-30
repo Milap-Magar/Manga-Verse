@@ -65,7 +65,7 @@ const Main = () => {
                     className="w-full h-48 object-cover"
                   />
                   <div className="p-4">
-                    <h3 className="text-lg font-bold">{manga.title}</h3>
+                    <h3 className="text-lg font-bold h-[80px]">{manga.title}</h3>
                   <Faq_Button title={"Read Me"} />  
                     <p className="text-sm text-gray-700 truncate">
                       {manga.description}

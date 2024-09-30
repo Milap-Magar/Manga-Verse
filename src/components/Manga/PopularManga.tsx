@@ -10,6 +10,7 @@ import { Card, Line, Loading } from "../../components";
 interface MangaFeature {
   id: string;
   title: string;
+  description: string;
   image: string;
 }
 
@@ -28,6 +29,7 @@ const PopularManga = () => {
             (manga: any) => ({
               id: manga.id,
               title: manga.title,
+              description: manga.description,
               image: manga.image,
             })
           );
@@ -72,7 +74,11 @@ const PopularManga = () => {
           >
             {data.map((manga) => (
               <SwiperSlide key={manga.id}>
-                <Card title={manga.title} image={manga.image} />
+                <Card
+                  title={manga.title}
+                  image={manga.image}
+                  description={manga.description}
+                />
               </SwiperSlide>
             ))}
           </Swiper>

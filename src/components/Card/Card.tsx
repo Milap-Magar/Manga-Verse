@@ -9,20 +9,41 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ image, title, description }) => {
   return (
-    <div className="bg-white rounded-xl shadow-lg overflow-hidden shadow-[#a9aeae] transition-transform transform hover:scale-105 hover:rounded-xl cursor-pointer flex flex-col px-2 py-1">
-      <div>
+    <div className="bg-gray-100 text-gray-900 rounded-xl shadow-lg overflow-hidden transition-transform transform hover:scale-105 cursor-pointer flex flex-col">
+      {/* Image Section */}
+      <div className="w-full">
         <img
           src={image}
           alt={`${title} cover`}
-          className="w-full h-48 object-cover"
+          className="w-full h-64 sm:h-48 md:h-64 lg:h-72 object-cover"
         />
-        <h3 className="text-lg font-bold truncate px-2 py-2">{title}</h3>
-        <p className="text-md font-semibold truncate px-2 py-1">
+      </div>
+
+      {/* Text Section */}
+      <div className="p-4 flex flex-col items-center text-center">
+        {/* Title Section */}
+        <h3 className="text-xl sm:text-lg md:text-2xl font-bold uppercase tracking-wide mb-1 w-full truncate">
+          {title}
+        </h3>
+
+        {/* Description Section */}
+        <p
+          className="px-2 text-sm sm:text-xs md:text-base font-medium text-gray-600 tracking-wide mb-2 overflow-hidden text-ellipsis"
+          style={{
+            display: "-webkit-box",
+            WebkitLineClamp: 5,
+            WebkitBoxOrient: "vertical",
+            lineHeight: "1.5rem", 
+            maxHeight: "4.5rem",
+          }}
+        >
           {description}
         </p>
       </div>
-      <div className="p-4 flex gap-5 ">
-        <Faq_Button title={"Read me"} />
+
+      {/* Button Section */}
+      <div className="p-4 flex justify-center">
+        <Faq_Button title={"Read Manga"} />
       </div>
     </div>
   );
