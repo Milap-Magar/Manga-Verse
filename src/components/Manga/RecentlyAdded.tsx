@@ -47,7 +47,7 @@ const RecentlyAdded = () => {
 
     fetchManga();
   }, []);
-  console.log(data);
+  // console.log(data);
   return (
     <div className="flex flex-col px-1 py-2 bg-[#beeae7] overflow-hidden">
       <Line title={"Recently Added"} />
