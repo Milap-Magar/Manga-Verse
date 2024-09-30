@@ -1,7 +1,7 @@
 
 const Feature = () => {
   return (
-    <div>Feature</div>
+    <div className={`w-full h-screen`}>Feature</div>
   )
 }
 
