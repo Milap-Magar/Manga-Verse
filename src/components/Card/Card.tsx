@@ -3,10 +3,11 @@ import Faq_Button from "./Faq_Button";
 
 interface CardProps {
   title: string;
+  description: string;
   image: string;
 }
 
-const Card: React.FC<CardProps> = ({ image, title }) => {
+const Card: React.FC<CardProps> = ({ image, title, description }) => {
   return (
     <div className="bg-white rounded-xl shadow-lg overflow-hidden shadow-[#a9aeae] transition-transform transform hover:scale-105 hover:rounded-xl cursor-pointer flex flex-col px-2 py-1">
       <div>
@@ -15,7 +16,10 @@ const Card: React.FC<CardProps> = ({ image, title }) => {
           alt={`${title} cover`}
           className="w-full h-48 object-cover"
         />
-        <h3 className="text-lg font-bold truncate flex px-2 py-2">{title}</h3>
+        <h3 className="text-lg font-bold truncate px-2 py-2">{title}</h3>
+        <p className="text-md font-semibold truncate px-2 py-1">
+          {description}
+        </p>
       </div>
       <div className="p-4 flex gap-5 ">
         <Faq_Button title={"Read me"} />
