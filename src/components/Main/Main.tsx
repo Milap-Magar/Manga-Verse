@@ -2,6 +2,7 @@ import { MANGA } from "@consumet/extensions";
 import { useEffect, useState } from "react";
 import Loading from "../Loading/Loading";
 import Faq_Button from "../Card/Faq_Button";
+import Line from "../Line/Line";
 
 interface MangaItem {
   title: string;
@@ -53,6 +54,7 @@ const Main = () => {
       ) : (
         homeList.length > 0 && (
           <div className="overflow-hidden">
+            <Line title="Manga Read" />
             <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 py-6 px-2 bg-[#beeae7] ">
               {homeList.map((manga: MangaItem) => (
                 <li
