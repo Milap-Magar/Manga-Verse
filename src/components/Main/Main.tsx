@@ -61,7 +61,7 @@ const Main = () => {
       ) : (
         homeList.length > 0 && (
           <div className="overflow-hidden">
-            <Line title="Manga Read" />
+            <Line title="Daily Updates" />
             <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 py-6 px-2 bg-[#beeae7] ">
               {homeList.map((manga: MangaItem) => (
                 <li
@@ -77,7 +77,10 @@ const Main = () => {
                     <h3 className="text-lg font-bold h-[80px]">
                       {manga.title}
                     </h3>
-                    <Faq_Button onClick={() =>handleReadMeClick(manga.id)} title={"Read Me"} />
+                    <Faq_Button
+                      onClick={() => handleReadMeClick(manga.id)}
+                      title={"Read Me"}
+                    />
                     <p className="text-sm text-[#dc9549] truncate">
                       {manga.description}
                     </p>
