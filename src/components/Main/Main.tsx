@@ -1,5 +1,7 @@
 import { MANGA } from "@consumet/extensions";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import Loading from "../Loading/Loading";
 import Faq_Button from "../Card/Faq_Button";
 import Line from "../Line/Line";
@@ -15,6 +17,7 @@ interface MangaItem {
 const Main = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [homeList, setHomeList] = useState<MangaItem[]>([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchManga = async () => {
@@ -47,6 +50,10 @@ const Main = () => {
     fetchManga();
   }, []);
 
+  const handleReadMeClick = (id: string) => {
+    navigate(`/manga/${id}`);
+  };
+
   return (
     <div>
       {isLoading ? (
@@ -70,7 +77,7 @@ const Main = () => {
                     <h3 className="text-lg font-bold h-[80px]">
                       {manga.title}
                     </h3>
-                    <Faq_Button title={"Read Me"} />
+                    <Faq_Button onClick={() =>handleReadMeClick(manga.id)} title={"Read Me"} />
                     <p className="text-sm text-[#dc9549] truncate">
                       {manga.description}
                     </p>

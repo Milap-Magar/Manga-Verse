@@ -1,9 +1,15 @@
-interface button {
+interface ButtonProps {
   title: string;
+  onClick?: () => void;
 }
-const Faq_Button: React.FC<button> = ({ title }) => {
+
+const Faq_Button: React.FC<ButtonProps> = ({ title, onClick }) => {
   return (
-    <button className="relative w-10 h-10 rounded-full bg-gradient-to-r from-red-200 to-red-500 flex items-center justify-center cursor-pointer shadow-md group">
+    <button
+      onClick={onClick}
+      className="relative w-10 h-10 rounded-full bg-gradient-to-r from-red-200 to-red-500 flex items-center justify-center cursor-pointer shadow-md group"
+      aria-label={title}
+    >
       <svg
         width="800px"
         height="800px"
@@ -20,7 +26,7 @@ const Faq_Button: React.FC<button> = ({ title }) => {
           strokeLinejoin="round"
         />
       </svg>
-      <span className="absolute top-[-20px] opacity-0 bg-gradient-to-r from-red=200 to-red-500 text-black px-2 py-1 rounded text-sm whitespace-nowrap group-hover:top-[-40px] group-hover:opacity-100 transition-all duration-300 pointer-events-none">
+      <span className="absolute top-[-20px] opacity-0 bg-gradient-to-r from-red-200 to-red-500 text-black px-2 py-1 rounded text-sm whitespace-nowrap group-hover:top-[-40px] group-hover:opacity-100 transition-all duration-300 pointer-events-none">
         {title}
       </span>
     </button>
