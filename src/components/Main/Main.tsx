@@ -24,6 +24,8 @@ const Main = () => {
       const mangaProvider = new MANGA.MangaDex();
       try {
         const results = await mangaProvider.fetchRecentlyAdded();
+        //htttps://postman-echo.com/get ==> [1, 2, 3, 4, 5, 6];
+        // const result = await fetch("htttps://postman-echo.com/get");
         // console.log("API Response:", results);
 
         if (results && Array.isArray(results.results)) {
