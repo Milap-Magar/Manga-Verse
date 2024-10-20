@@ -8,7 +8,8 @@ import tokyorevengers from "../../assets/tokyorevengers.jpg";
 import silentvoice from "../../assets/silentvoice.jpg";
 import AOT from "../../assets/AOt.jpg";
 import yourname from "../../assets/nameyou.jpg";
-import "./Feature.css";
+
+import "./feature.css";
 
 const Feature = () => {
   const items = [
